@@ -1,69 +1,582 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多多开 App - 下载与介绍</title>
+    <title>多多开查单助手 - 您的订单管理专家</title>
     <style>
+        :root {
+            --primary-color: #1E90FF;
+            --text-color: #333;
+            --bg-color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
             line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .logo-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            padding-left: 1rem;
+            border-left: 1px solid #ddd;
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             text-align: center;
         }
-        h1, h2 {
-            color: #333;
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
         }
-        p {
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .download-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .download-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .download-preview {
+            width: 240px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .download-btn {
+            display: block;
+            width: 240px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        .download-btn img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        .btn-primary span {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .btn-secondary span {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #e0e0e0;
+            color: #666;
+            border-radius: 5px;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .carousel {
+            margin: 4rem auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 500px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f5f7fa;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-control:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .carousel-control.prev {
+            left: 20px;
+        }
+
+        .carousel-control.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .download-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .carousel-item {
+                height: 300px;
+            }
+            
+            .carousel-control {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            
+            .download-btn {
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            .logo-text {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+            }
+            
+            .logo-subtitle {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+        .contact-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
             color: #666;
         }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .modal-close:hover {
+            color: #333;
         }
-        .image-container {
-            margin: 20px 0;
+
+        .download-hint {
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
         }
-        img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 8px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            color: #fff;
-            background: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background: #0056b3;
+
+        @media (max-width: 768px) {
+            .contact-btn {
+                right: 20px;
+                bottom: 20px;
+                padding: 10px 20px;
+            }
+            
+            .modal-content img {
+                max-width: 80%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>多多开 App</h1>
-        <p>多多开是一款帮助用户高效管理拼多多订单的应用，支持批量查询订单、物流跟踪、订单导出等功能。</p>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="images/icon512.webp" alt="多多开查单助手">
+                <div class="logo-text">
+                    <span class="logo-title">多多开查单助手</span>
+                    <span class="logo-subtitle">拼多多买家查单工具，高效处理多个拼多多账号下的订单</span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <div class="image-container">
-            <img src="project-image.png" alt="多多开 App 界面预览">
+    <section class="hero">
+        <h1>多多开查单助手</h1>
+        <p>专业的拼多多订单管理工具，让您的订单管理更轻松、更高效</p>
+        <div class="download-section">
+            <a href="duoduokai.apk" class="download-btn btn-primary">
+                <img src="images/android-download.svg" alt="Android版本下载">
+                <span>下载 Android 版本</span>
+            </a>
+            <a href="duoduokai.zip" class="download-btn btn-primary">
+                <img src="images/chrome-download.svg" alt="Chrome插件下载">
+                <span>获取 Chrome 插件</span>
+            </a>
+            <a href="#" class="download-btn btn-secondary">
+                <img src="images/ios-download.svg" alt="iOS版本即将推出">
+                <span>iOS 版本开发中</span>
+            </a>
         </div>
+    </section>
 
-        <h2>下载</h2>
-        <p>点击以下按钮下载对应文件：</p>
-        <a href="duoduokai.apk" class="btn" download>📱 下载 APK</a>
-        <a href="duoduokai.zip" class="btn" download>📦 下载 ZIP</a>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <!-- 这里将通过JavaScript动态添加轮播图片 -->
+        </div>
     </div>
+
+    <section class="features">
+        <h2>核心功能</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <img src="images/ic-export-order.svg" alt="批量导出" class="feature-icon">
+                <h3>批量导出订单</h3>
+                <p>支持将订单信息批量导出为Excel文件，便于后续处理和分析</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/ic-multi-accounts.svg" alt="多账号管理" class="feature-icon">
+                <h3>多账号管理</h3>
+                <p>支持多个拼多多账号同时管理，无需频繁切换账号</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/ic-query-orders.svg" alt="智能查询" class="feature-icon">
+                <h3>智能查询</h3>
+                <p>多关键词快速查询物流，智能算法优化查询效率</p>
+            </div>
+        </div>
+    </section>
+
+    <button class="contact-btn">联系我们</button>
+
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img src="images/wechat-qrcode.jpg" alt="联系我们" id="qrImage">
+            <p class="download-hint">长按或右键图片即可保存</p>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图实现
+        const carouselInner = document.querySelector('.carousel-inner');
+        
+        // 获取所有以"多多开产品介绍"开头的图片
+        const images = [
+            '多多开产品介绍_page-0001.jpg',
+            '多多开产品介绍_page-0002.jpg',
+            '多多开产品介绍_page-0003.jpg',
+            '多多开产品介绍_page-0004.jpg',
+            '多多开产品介绍_page-0005.jpg',
+            '多多开产品介绍_page-0006.jpg',
+            '多多开产品介绍_page-0007.jpg',
+        ];
+        
+        let currentIndex = 0;
+
+        // 添加轮播控制按钮
+        const carousel = document.querySelector('.carousel');
+        const prevBtn = document.createElement('button');
+        const nextBtn = document.createElement('button');
+        
+        prevBtn.className = 'carousel-control prev';
+        nextBtn.className = 'carousel-control next';
+        prevBtn.innerHTML = '❮';
+        nextBtn.innerHTML = '❯';
+        
+        carousel.appendChild(prevBtn);
+        carousel.appendChild(nextBtn);
+
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // 更新指示器
+            document.querySelectorAll('.carousel-indicator').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        // 添加轮播图指示器
+        const indicators = document.createElement('div');
+        indicators.className = 'carousel-indicators';
+        images.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+            indicators.appendChild(dot);
+        });
+        carousel.appendChild(indicators);
+
+        // 事件监听
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // 自动轮播
+        let autoplayInterval = setInterval(nextSlide, 4000);
+
+        // 鼠标悬停时暂停自动轮播
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 4000);
+        });
+
+        // 初始化轮播图
+        images.forEach(image => {
+            const div = document.createElement('div');
+            div.className = 'carousel-item';
+            div.style.backgroundImage = `url(images/${image})`;
+            carouselInner.appendChild(div);
+        });
+
+        // 联系我们按钮和弹框逻辑
+        const contactBtn = document.querySelector('.contact-btn');
+        const modal = document.querySelector('.modal');
+        const modalClose = document.querySelector('.modal-close');
+        const qrImage = document.getElementById('qrImage');
+
+        contactBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // 点击弹框外部区域关闭弹框
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // 阻止图片点击事件冒泡
+        qrImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // ESC键关闭弹框
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
