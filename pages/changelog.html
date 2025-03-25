@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多多开 - 更新日志</title>
+    <style>
+        @font-face {
+            font-family: 'TencentW7';
+            src: url('../assets/fonts/W7.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'TencentW7', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #000;
+        }
+        
+        h1 {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 32px;
+        }
+        
+        h2 {
+            font-size: 22px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 .version-tag {
+            background-color: #000;
+            color: white;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        h2 .version-date {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+        
+        h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            color: #444;
+        }
+        
+        p {
+            margin: 16px 0;
+            font-size: 16px;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .back-button:hover {
+            background: #333;
+        }
+        
+        .feature {
+            padding-left: 5px;
+            border-left: 3px solid #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .improvement {
+            padding-left: 5px;
+            border-left: 3px solid #2196F3;
+            margin-bottom: 20px;
+        }
+        
+        .bugfix {
+            padding-left: 5px;
+            border-left: 3px solid #FF9800;
+            margin-bottom: 20px;
+        }
+        
+        .security {
+            padding-left: 5px;
+            border-left: 3px solid #F44336;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title, .improvement-title, .bugfix-title, .security-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .feature-title::before {
+            content: "✨ ";
+        }
+        
+        .improvement-title::before {
+            content: "🔧 ";
+        }
+        
+        .bugfix-title::before {
+            content: "🐛 ";
+        }
+        
+        .security-title::before {
+            content: "🔒 ";
+        }
+        
+        .feature-description, .improvement-description, .bugfix-description, .security-description {
+            color: #555;
+        }
+        
+        .platforms {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .platforms span {
+            display: inline-block;
+            margin-right: 10px;
+            background: #f1f1f1;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            h2 .version-date {
+                display: block;
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>多多开 - 更新日志</h1>
+        <p>记录每个版本的更新内容和优化改进</p>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="version-tag">v1.3.0</span>
+            最新版本
+            <span class="version-date">2024年5月15日</span>
+        </h2>
+        
+        <h3>新增功能</h3>
+        <div class="feature">
+            <div class="feature-title">多端登录支持</div>
+            <div class="feature-description">支持同时在多个设备上登录同一账号，数据实时同步，不会互相踢出。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">订单批量操作</div>
+            <div class="feature-description">支持批量选择多个订单进行导出、删除等操作，提高批量处理效率。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">自定义导出字段</div>
+            <div class="feature-description">高级版用户现可自定义Excel导出字段，按需选择需要的数据列。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+            </div>
+        </div>
+        
+        <h3>功能优化</h3>
+        <div class="improvement">
+            <div class="improvement-title">性能优化</div>
+            <div class="improvement-description">大幅提升大量订单数据下的显示和搜索速度，减少加载时间约40%。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">UI界面更新</div>
+            <div class="improvement-description">全新界面设计，更简洁直观。优化了夜间模式显示效果。</div>
+            <div class="platforms">
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">订单查询优化</div>
+            <div class="improvement-description">优化订单拉取策略，更智能地控制查询速度，降低账号被限制的风险。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <h3>问题修复</h3>
+        <div class="bugfix">
+            <div class="bugfix-title">修复某些订单状态显示错误</div>
+            <div class="bugfix-description">修复部分待收货订单状态显示为"已完成"的问题。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <div class="bugfix">
+            <div class="bugfix-title">修复导出Excel格式错误</div>
+            <div class="bugfix-description">修复在某些情况下导出的Excel文件格式错误，无法正常打开的问题。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+            </div>
+        </div>
+        
+        <div class="bugfix">
+            <div class="bugfix-title">修复Android 11以上版本兼容性问题</div>
+            <div class="bugfix-description">解决在Android 11及以上系统偶发的闪退问题。</div>
+            <div class="platforms">
+                <span>Android</span>
+            </div>
+        </div>
+        
+        <h3>安全更新</h3>
+        <div class="security">
+            <div class="security-title">增强账户安全保护</div>
+            <div class="security-description">升级账户密码加密算法，提高账户安全性。</div>
+            <div class="platforms">
+                <span>Chrome插件</span>
+                <span>Android</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="version-tag">v1.2.5</span>
+            <span class="version-date">2024年4月10日</span>
+        </h2>
+        
+        <h3>功能优化</h3>
+        <div class="improvement">
+            <div class="improvement-title">优化插件描述和权限说明</div>
+            <div class="improvement-description">更新了插件描述，明确说明功能范围和隐私保护措施。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">添加隐私政策和使用说明</div>
+            <div class="improvement-description">新增专门的隐私政策和使用说明页面，让用户更清楚地了解权益和操作方法。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">改进错误提示信息</div>
+            <div class="improvement-description">优化错误提示文案，提供更明确的解决建议。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">优化数据加载状态显示</div>
+            <div class="improvement-description">添加更直观的加载动画，提供加载进度百分比显示。</div>
+        </div>
+        
+        <h3>问题修复</h3>
+        <div class="bugfix">
+            <div class="bugfix-title">移除未使用的权限</div>
+            <div class="bugfix-description">移除插件中未实际使用的 scripting 和 webRequest 权限，减少权限要求。</div>
+        </div>
+        
+        <div class="bugfix">
+            <div class="bugfix-title">修复搜索结果高亮显示问题</div>
+            <div class="bugfix-description">修复在某些场景下搜索关键词无法正确高亮显示的问题。</div>
+        </div>
+        
+        <div class="bugfix">
+            <div class="bugfix-title">优化请求频率限制提示</div>
+            <div class="bugfix-description">改进请求频率限制的提示信息，增加倒计时显示和自动重试功能。</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="version-tag">v1.2.4</span>
+            <span class="version-date">2024年3月15日</span>
+        </h2>
+        
+        <h3>新增功能</h3>
+        <div class="feature">
+            <div class="feature-title">支持订单数据导出功能</div>
+            <div class="feature-description">新增将订单数据导出为Excel格式的功能，方便用户进行数据分析和管理。</div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">添加多关键词搜索支持</div>
+            <div class="feature-description">支持使用多个关键词组合搜索，如"上海 手机"可同时匹配地址和商品名称。</div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">新增请求频率限制保护</div>
+            <div class="feature-description">添加智能请求频率控制功能，防止因频繁查询导致的账号风险。</div>
+        </div>
+        
+        <h3>功能优化</h3>
+        <div class="improvement">
+            <div class="improvement-title">优化多账号管理功能</div>
+            <div class="improvement-description">改进账号切换逻辑，提高多账号并行查询效率。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">改进订单列表显示效果</div>
+            <div class="improvement-description">优化订单列表的布局和样式，显示更多有用信息，减少冗余内容。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">添加加载进度提示</div>
+            <div class="improvement-description">新增详细的加载进度显示，让用户了解当前操作的执行状态。</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="version-tag">v1.2.3</span>
+            <span class="version-date">2024年2月20日</span>
+        </h2>
+        
+        <h3>新增功能</h3>
+        <div class="feature">
+            <div class="feature-title">支持多个买家账号管理</div>
+            <div class="feature-description">首次引入多账号管理功能，支持在同一界面管理多个拼多多买家账号的订单。</div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">添加订单搜索功能</div>
+            <div class="feature-description">新增按商品名称、订单号、收货地址等字段搜索订单的功能。</div>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-title">实现订单物流信息展示</div>
+            <div class="feature-description">新增物流轨迹和状态的详细展示，支持一键复制物流单号。</div>
+        </div>
+        
+        <h3>功能优化</h3>
+        <div class="improvement">
+            <div class="improvement-title">优化用户界面交互</div>
+            <div class="improvement-description">全面优化UI设计，提供更直观的操作流程和更友好的视觉体验。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">改进数据加载性能</div>
+            <div class="improvement-description">优化数据加载和渲染逻辑，大幅提升应用响应速度。</div>
+        </div>
+        
+        <div class="improvement">
+            <div class="improvement-title">添加错误处理机制</div>
+            <div class="improvement-description">增强错误处理能力，提供更明确的错误提示和自动恢复机制。</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="version-tag">v1.0.0</span>
+            <span class="version-date">2024年1月10日</span>
+        </h2>
+        
+        <h3>首次发布</h3>
+        <div class="feature">
+            <div class="feature-title">多多开首次发布</div>
+            <div class="feature-description">
+                <p>包含以下核心功能：</p>
+                <ul>
+                    <li>拼多多买家账号订单查询</li>
+                    <li>订单详情查看</li>
+                    <li>按时间范围筛选订单</li>
+                    <li>基本物流信息展示</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="../" class="back-button">返回首页</a>
+        <p>© 2024 多多开 - 多多开团队保留所有权利</p>
+    </div>
+</body>
+</html> 
