@@ -2,6 +2,7 @@
 
 <div align="center">
   <img src="assets/images/logo.png" alt="多多开Logo" width="120">
+  <h3>电商物流查询、企业采购对账、个人年度账单</h3>
 </div>
 
 ## 📖 项目简介
