@@ -2,12 +2,15 @@
 
 <div align="center">
   <img src="assets/images/logo.png" alt="多多开Logo" width="120">
-  <h3>愿勤劳的你，多多开单</h3>
 </div>
 
 ## 📖 项目简介
 
 多多开是一款专业的拼多多买家订单管理工具，致力于为用户提供高效、便捷的订单管理解决方案。支持多账号管理、订单导出、物流查询、多设备同步等功能，让您在多设备上的订单管理更轻松高效。
+
+## 🎬 演示视频
+
+观看[Bilibili视频演示](https://www.bilibili.com/video/BV1VEo2YiEjZ/)了解多多开的使用方法和功能展示。
 
 ## ✨ 主要特性
 
@@ -32,7 +35,8 @@
 - 完整的订单管理功能
 - 购物订单Excel导出
 - 实时同步订单状态
-- [获取插件](https://www.crxsoso.com/webstore/detail/bljbniggeppfcchhiaimedhejcnpedii)
+- [国内插件市场](https://www.crxsoso.com/webstore/detail/bljbniggeppfcchhiaimedhejcnpedii)
+- [Google Web Store](https://chromewebstore.google.com/detail/bljbniggeppfcchhiaimedhejcnpedii)
 
 ### Android 手机版
 - 随时随地管理订单，支持 Android 5.0 及以上系统
@@ -79,10 +83,6 @@
 - [使用条款](./pages/terms.html)
 - [常见问题](./pages/faq.html)
 - [更新日志](./pages/changelog.html)
-
-## 🎬 演示视频
-
-观看[Bilibili视频演示](https://www.bilibili.com/video/BV1VEo2YiEjZ/)了解多多开的使用方法和功能展示。
 
 ---
 
