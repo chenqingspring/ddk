@@ -42,5 +42,5 @@ jobs:
       # Step 3: execute curl command to post data from site.txt
       - name: Post data to Baidu
         run: |
-          curl -H 'Content-Type:text/plain' --data-binary @site.txt "http://data.zz.baidu.com/urls?site=https://sizdt.com&token=kmoYXkxlZABHslkF"
+          curl -H 'Content-Type:text/plain' --data-binary @site.txt "http://data.zz.baidu.com/urls?site=https://ddk.behring.tech&token=kmoYXkxlZABHslkF"
         working-directory: ${{ github.workspace }}
